@@ -1,4 +1,4 @@
-# Push_Swap Algorithm Optimization Tool
+# Push_Swap Algorithm Sorting Checker
 
 ## What is the purpose of this script?
 
