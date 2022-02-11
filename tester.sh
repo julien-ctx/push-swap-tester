@@ -7,7 +7,7 @@
 
 results()
 {
-    for i in {1..120}
+    for i in {1..YOUR_NUMBER}
     do
         ./push_swap $(sed -n "$i"p test_values) | ./checker_Mac $(sed -n "$i"p test_values) | cat >> results.txt
     done
@@ -18,7 +18,7 @@ results()
 
 moves()
 {
-    for i in {1..120}
+    for i in {1..YOUR_NUMBER}
     do
         ./push_swap $(sed -n "$i"p test_values) | wc -l | cat >> moves.txt
     done 
