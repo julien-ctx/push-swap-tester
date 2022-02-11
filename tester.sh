@@ -3,7 +3,7 @@
 #Change 120 in results() and moves() by the number of lines in test_values
 
 #This part is used to check if all the combinations are OK or KO
-#Use 'sh tester.sh results' in the terminal to retrieve results.txt file
+#Use 'sh tester.sh 1' in the terminal to retrieve results.txt file
 
 results()
 {
@@ -14,7 +14,7 @@ results()
 }
 
 #This part is used to check the number of moves your program used to sort the numbers
-#Use 'sh tester.sh moves' in the terminal to retrieve moves.txt file
+#Use 'sh tester.sh 2' in the terminal to retrieve moves.txt file
 
 moves()
 {
@@ -30,10 +30,10 @@ then
     exit 1
 fi
 
-if (($1 == "results"))
+if (($1 == 1))
 then
     results
-elif (($1 == "moves"))
+elif (($1 == 2))
 then
     moves
 else
