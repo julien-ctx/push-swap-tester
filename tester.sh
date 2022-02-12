@@ -1,13 +1,13 @@
 #Use https://www.dcode.fr/generateur-permutations to retrieve all the combinations
 #Put them in a file called test_values, separated by a \n
-#Change 120 in results() and moves() by the number of lines in test_values
+#Change YOUR_NUMBER in results() and moves() by the number of lines in test_values
 
 #This part is used to check if all the combinations are OK or KO
 #Use 'sh tester.sh results' in the terminal to retrieve results.txt file
 
 results()
 {
-    for i in {1..120}
+    for i in {1..YOUR_NUMBER}
     do
         ./push_swap $(sed -n "$i"p test_values) | ./checker_Mac $(sed -n "$i"p test_values) | cat >> results.txt
     done
@@ -18,7 +18,7 @@ results()
 
 moves()
 {
-    for i in {1..120}
+    for i in {1..YOUR_NUMBER}
     do
         ./push_swap $(sed -n "$i"p test_values) | wc -l | tr -d ' ' | cat >> moves.txt
     done 
