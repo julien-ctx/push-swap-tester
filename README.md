@@ -13,6 +13,7 @@ That's why this script will check:
 
 - for all the combinations, if the checker provided by 42 school returns OK or KO.
 - for all the combinations, the number of moves used to sort the combination.
+- the average number of moves used by your algorithm to sort one combination.
 
 ## Requirements
 
@@ -31,6 +32,10 @@ You have to put the checker at the root of your repository. It should be called 
 
 5/ Inside the script, replace **YOUR_NUMBER** by the number of combinations
 
-6/ Use `sh tester.sh 1` to see if your program sorted the numbers (OK or KO), or `sh tester.sh 2` to see the number of moves
+6/ Use one of the following commands:
+- `sh tester.sh results` : results of your algorithm (KO or OK) for all the combinations will be put into results.txt file
+- `sh tester.sh moves`: number of moves used by your algorithm to sort all the different combinations will be put into moves.txt file
+- `sh tester.sh average` : prints in the standard output the average number of moves your algorithm used to sort all the combinations of numbers.
+- `sh tester.sh remove` : removes all the generated files, except test_values
 
-7/ Check **results.txt** and/or **moves.txt** and refer to the line to see where your algorithm failed
+7/ Check **results.txt** and/or **moves.txt** and refer to the line to see where your algorithm failed (or succeeded!)
