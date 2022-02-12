@@ -1,6 +1,6 @@
 #Use https://www.dcode.fr/generateur-permutations to retrieve all the combinations
 #Put them in a file called test_values, separated by a \n
-#Change 120 in results() and moves() by the number of lines in test_values
+#Change YOUR_NUMBER in results() and moves() by the number of lines in test_values
 
 #This part is used to check if all the combinations are OK or KO
 #Use 'sh tester.sh 1' in the terminal to retrieve results.txt file
@@ -26,7 +26,7 @@ moves()
 
 if [ "$#" -ne 1 ]
 then
-    echo "Please use a correct format: 'sh tester.sh results' or 'sh tester.sh moves'\n"
+    echo "Please use a correct format: 'sh tester.sh 1' or 'sh tester.sh 2'\n"
     exit 1
 fi
 
@@ -37,5 +37,5 @@ elif (($1 == 2))
 then
     moves
 else
-    echo "Please use a correct format: 'sh tester.sh results' or 'sh tester.sh moves'\n"
+    echo "Please use a correct format: 'sh tester.sh 1' or 'sh tester.sh 2'\n"
 fi
