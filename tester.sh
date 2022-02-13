@@ -1,3 +1,5 @@
+#!/bin/bash 
+
 #This part is used to check if all the combinations are OK or KO
 #Use 'sh tester.sh results' in the terminal to retrieve results.txt file
 
