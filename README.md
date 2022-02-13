@@ -22,20 +22,15 @@ You have to put the checker at the root of your repository. It should be called 
 ## How to use the script?
 
 
-1/ `git clone https://github.com/julien-ctx/push_swap_tool.git && mv push_swap_tool/tester.sh . && rm -rf push_swap_tool`
+1/ `git clone https://github.com/julien-ctx/push_swap_tool.git && mv push_swap_tool/tester.sh . && mv push_swap_tool/combination.sh . && rm -rf push_swap_tool`
 
-2/ Go to https://www.dcode.fr/generateur-permutations and enter your number (if you enter 5, you'll get all the combinations of 5 numbers)
+2/ Use one of the following commands:
 
-3/ Copy all the combinations and paste them inside a file called **test_values** inside your repository
+*You need to put the sequence of number as an argument: for example, use `"1 2 3 4 5"` as an argument to check all combinations of 5 numbers.
 
-4/ Use `cat test_values | wc -l` to check the number of combinations
-
-5/ Inside the script, replace **YOUR_NUMBER** by the number of combinations
-
-6/ Use one of the following commands:
-- `sh tester.sh results` : results of your algorithm (KO or OK) for all the combinations will be put into results.txt file
-- `sh tester.sh moves`: number of moves used by your algorithm to sort all the different combinations will be put into moves.txt file
-- `sh tester.sh average` : prints in the standard output the average number of moves your algorithm used to sort all the combinations of numbers.
+- `sh tester.sh results "1 2 3 4 5"` : results of your algorithm (KO or OK) for all the combinations will be put into results.txt file
+- `sh tester.sh moves "1 2 3 4 5"`: number of moves used by your algorithm to sort all the different combinations will be put into moves.txt file
+- `sh tester.sh average "1 2 3 4 5"` : prints in the standard output the average number of moves your algorithm used to sort all the combinations of numbers.
 - `sh tester.sh remove` : removes all the generated files, except test_values
 
-7/ Check **results.txt** and/or **moves.txt** and refer to the line to see where your algorithm failed (or succeeded!)
+3/ Check **results.txt** and/or **moves.txt** and refer to the line to see where your algorithm failed (or succeeded!)
