@@ -22,7 +22,7 @@ You have to put the checker at the root of your repository. It should be called 
 ## How to use the script?
 
 
-1/ `git clone git@github.com:julien-ctx/push_swap_tool.git && mv push_swap_tool/tester.sh . && rm -rf push_swap_tool`
+1/ `git clone https://github.com/julien-ctx/push_swap_tool.git && mv push_swap_tool/tester.sh . && rm -rf push_swap_tool`
 
 2/ Go to https://www.dcode.fr/generateur-permutations and enter your number (if you enter 5, you'll get all the combinations of 5 numbers)
 
