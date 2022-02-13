@@ -1,4 +1,6 @@
-#!/bin/bash 
+#!/bin/bash
+
+#Thank you to https://github.com/AdamDanischewski/ for his great implementation of the Heap Permutation Algorithm.
 
 _=$BASH_ARGC
 OLDIFS=$IFS 
