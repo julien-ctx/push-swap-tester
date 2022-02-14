@@ -29,8 +29,9 @@ You have to put the checker at the root of your repository. It should be called 
 ⚠️ ***You need to put the sequence of number as an argument in the following commands: for example, use `"1 2 3 4 5"` as an argument to check all combinations of 5 numbers. Replace the arguments in the following commands according to your needs*** ⚠️
 
 - `sh tester.sh results "1 2 3 4 5"` : results of your algorithm (KO or OK) for all the combinations will be put into results.txt file
-- `sh tester.sh moves "1 2 3 4 5"`: number of moves used by your algorithm to sort all the different combinations will be put into moves.txt file
+- `sh tester.sh moves "1 2 3 4 5"` : number of moves used by your algorithm to sort all the different combinations will be put into moves.txt file
 - `sh tester.sh average "1 2 3 4 5"` : prints in the standard output the average number of moves your algorithm used to sort all the combinations of numbers.
+- `sh tester.sh max "1 2 3 4 5"` : prints in the standard output the max number of move used in all the combinations.
 - `sh tester.sh remove` : removes all the generated files
 
 3/ Check **results.txt** and/or **moves.txt** and refer to the line to see where your algorithm failed (or succeeded!)
