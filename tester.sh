@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #This part is used to check if all the combinations are OK or KO
-#Use 'sh tester.sh results' in the terminal to retrieve results.txt file
+#Use 'sh tester.sh results "1 2 3 4 5"' in the terminal to retrieve results.txt file
 
 results()
 {
@@ -13,7 +13,7 @@ results()
 }
 
 #This part is used to check the number of moves your program used to sort the numbers
-#Use 'sh tester.sh moves' in the terminal to retrieve moves.txt file
+#Use 'sh tester.sh moves "1 2 3 4 5"' in the terminal to retrieve moves.txt file
 
 moves()
 {
@@ -43,6 +43,15 @@ then
 	average=$( awk '{s+=$1} END {print s}' moves.txt )
 	result=$((average))/$((lines))
 	printf $((result))
+	printf "\n"
+	rm -rf moves.txt
+	rm -rf test_values
+elif [ "$1" == "max" ]
+then
+	rm -rf moves.txt
+	sh combination.sh $2 | cat > test_values
+	moves
+	sort -n moves.txt | tail -n 1
 	rm -rf moves.txt
 	rm -rf test_values
 elif [ "$1" == "remove" ]
