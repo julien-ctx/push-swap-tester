@@ -2,7 +2,7 @@
 
 ## What is the purpose of this script?
 
-This little bash script allows you to check how your program sorts all the combinations of a number.
+This little bash script allows you to check how your program sorts all the combinations of a number. It works well for small numbers (maximum 7-8 numbers).
 
 **Example:**
 
