@@ -22,7 +22,7 @@ You have to put the checker at the root of your repository. It should be called 
 ## How to use the script?
 
 
-1/ `git clone https://github.com/julien-ctx/push_swap_tool.git && mv push_swap_tool/tester.sh . && mv push_swap_tool/combination.sh . && rm -rf push_swap_tool && chmod 777 tester.sh`
+1/ `git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.sh . && mv push_swap_tester/combination.sh . && rm -rf push_swap_tester && chmod 777 tester.sh`
 
 2/ Use one of the following commands:
 
