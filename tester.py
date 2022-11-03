@@ -4,10 +4,10 @@ import subprocess
 
 class color:
    PURPLE = '\033[95m'
-   CYAN = '\033[96m'
+   CYAN = '\033[96;1m'
    DARKCYAN = '\033[36m'
    BLUE = '\033[94;1m'
-   GREEN = '\033[92m'
+   GREEN = '\033[92;1m'
    YELLOW = '\033[93m'
    RED = '\033[91;1m'
    BOLD = '\033[1m'
@@ -45,30 +45,70 @@ def permutations(elements):
 
 def calculate_all(nb):
 	elmt = [x for x in range(1, nb + 1)]
+	max_moves = 0
 	all_moves = []
-	max_moves = [0, ""]
+	all_res = []
 	for perm in permutations(elmt):
-		cmd = None
-		moves_cmd = ' '.join([str(x) for x in perm])
+		cmd = ' '.join([str(x) for x in perm])
+
 		# check max moves
-		moves_cmd = "./push_swap " + moves_cmd + " | wc -l"
+		moves_cmd = "./push_swap " + cmd + " | wc -l"
 		moves_output = int(os.popen(moves_cmd).read())
-		print(moves_cmd)
-		print("." + str(moves_output) + ".")
-		if (moves_output > max_moves[0]):
-			max_moves[0] = moves_output
-			max_moves[1] = moves_cmd
-	print(color.BOLD + "👉 MAX = " + str(max_moves[0]), end = '')
+		if (moves_output > max_moves):
+			max_moves = moves_output
+		all_moves.append((int(moves_output), str(cmd)))
+
+		# check results
+		res_cmd = "./push_swap " + cmd + " | ./checker_Mac " + cmd
+		res_output = os.popen(res_cmd).read()
+		all_res.append((str(res_output), str(cmd)))
+
+	# print max moves
 	limit = 3 if nb == 3 else 12 if nb == 5 else math.inf
-	if (max_moves[0] > limit):
-		print(color.BOLD + "\t❌ Too Much Moves: " + max_moves[1])
+	if limit == 3:
+		all_too_much = [("./push_swap " + item[1] + " | wc -l") for item in all_moves if item[0] > 3]
+	elif limit == 12:
+		all_too_much = [("./push_swap " + item[1] + " | wc -l") for item in all_moves if item[0] > 12]
+	else:
+		all_too_much = None
+	all_wrong_values = [("./push_swap " + item[1] + " | ./checker_Mac " + item[1]) for item in all_moves if item[0] == "KO\n"]
+	print(color.BOLD + "👉 MAX = " + str(max_moves), end = '')
+	if (max_moves > limit):
+		print(color.BOLD + "\t❌ Too Much Moves")
 	else:
 		print(color.BOLD + "\t✅ OK")
 
+	# print results
+	for x in all_res:
+		if x[0] == "KO\n":
+			print(color.BOLD + "👉 RESULTS\t" + "❌ KO")
+			return
+	print(color.BOLD + "👉 RESULTS\t" + "✅ OK" + color.END)
+	if all_too_much:
+		f = open('results.txt', 'a+')
+		if limit == 3:
+			f.write("** TOO MUCH MOVES FOR THESE TESTS (MAX = 3) **\n\n")
+		elif limit == 12:
+			f.write("** TOO MUCH MOVES FOR THESE TESTS (MAX = 12) **\n\n")
+		for item in all_too_much:
+			f.write(item + "\n")
+		f.write("\n")
+		f.close()
+	if all_wrong_values:
+		f = open('results.txt', 'a+')
+		f.write("** KO ON THESE TESTS **\n\n")
+		for item in all_wrong_values:
+			f.write(item + "\n")
+		f.close()
+
 if __name__ == "__main__":
-	print(color.RED + "\n** Welcome to push_swap tester for small stacks **\n" + color.END)
-	# print(color.BOLD + ">> Testing all combinations for 3 numbers <<" + color.END)
-	# calculate_all(3)
+	os.system("rm -rf results.txt")
+	print(color.CYAN + "\n** Welcome to push_swap tester for small stacks **" + color.END)
+	for i in range(3, 6):
+		print(color.BLUE + f"\n>> Testing for all combinations of {i} numbers <<" + color.END)
+		calculate_all(i)
+	if os.path.exists("results.txt"):
+		print(color.RED + "\n-> You can find details of failed tests in results.txt file -<" + color.END)
+	else:
+		print(color.GREEN + "\n-> Congratulations! all the tests are OK! <-" + color.END)
 	print()
-	print(color.BOLD + ">> Testing all combinations for 5 numbers <<" + color.END)
-	calculate_all(5)
