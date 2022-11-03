@@ -14,13 +14,16 @@ That's why this script checks:
 - for all the combinations of 3, 4 and 5 numbers, if the checker provided by 42 school returns OK or KO.
 - for all the combinations of 3, 4 and 5 numbers, if the number of moves used to sort the combination is greater than the subject requirements.
 
-## How to use the script?
+## How to install the script?
 - ***For Mac***:
 
-`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_Mac . && rm -rf push_swap_tester && python3 tester.py`
+`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_Mac . && rm -rf push_swap_tester && chmod 777 checker_Mac && python3 tester.py`
 
 - ***For Linux***:
 
-`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_linux . && rm -rf push_swap_tester && python3 tester.py`
+`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_linux . && rm -rf push_swap_tester && chmod 777 checker_linux && python3 tester.py`
 
+## How to use the script?
+
+Atfer installation, all you have to do is execute the Python script at the root of your repository using: `python3 tester.py`
 If the script detects errors (too much moves or KO), a **results.txt** file is created to help you understand your mistakes.
