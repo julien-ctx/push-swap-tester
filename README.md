@@ -2,36 +2,25 @@
 
 ## What is the purpose of this script?
 
-This little bash script allows you to check how your program sorts all the combinations of a number. It works well for small numbers (maximum 7-8 numbers).
+This little Python script allows you to check how your program sorts **all the combinations** of small stacks. It is very convenient to be sure you meet the moves requirements for **3 and 5 numbers** as they are tested during the correction.
 
 **Example:**
 
-You are trying to check if your algorithm sort correctly ***5 different numbers***.
-There are 5! = 120 different combinations between five numbers, and checking it by yourself would be a waste of time.
+You want to know if your algorithm sorts correctly ***5 different numbers***.
+There are 5! = 120 different combinations between five numbers, and checking it by yourself would be a waste of time!
 
-That's why this script will check:
+That's why this script checks:
 
-- for all the combinations, if the checker provided by 42 school returns OK or KO.
-- for all the combinations, the number of moves used to sort the combination.
-- the average number of moves used by your algorithm to sort one combination.
-
-## Requirements
-
-You have to put the checker at the root of your repository. It should be called **checker_Mac** or **checker_linux**. If you use the Linux checker, please change all occurrences of 'Mac' inside the tester.sh.
+- for all the combinations of 3, 4 and 5 numbers, if the checker provided by 42 school returns OK or KO.
+- for all the combinations of 3, 4 and 5 numbers, if the number of moves used to sort the combination is greater than the subject requirements.
 
 ## How to use the script?
+- ***For Mac***:
 
+`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_Mac . && rm -rf push_swap_tester && python3 tester.py`
 
-1/ `git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.sh . && mv push_swap_tester/combination.sh . && rm -rf push_swap_tester && chmod 777 tester.sh`
+- ***For Linux***:
 
-2/ Use one of the following commands:
+`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_linux . && rm -rf push_swap_tester && python3 tester.py`
 
-⚠️ ***You need to put the sequence of number as an argument in the following commands: for example, use `"1 2 3 4 5"` as an argument to check all combinations of 5 numbers. Replace the arguments in the following commands according to your needs*** ⚠️
-
-- `sh tester.sh results "1 2 3 4 5"` : results of your algorithm (KO or OK) for all the combinations will be put into results.txt file
-- `sh tester.sh moves "1 2 3 4 5"` : number of moves used by your algorithm to sort all the different combinations will be put into moves.txt file
-- `sh tester.sh average "1 2 3 4 5"` : prints in the standard output the average number of moves your algorithm used to sort all the combinations of numbers.
-- `sh tester.sh max "1 2 3 4 5"` : prints in the standard output the max number of move used in all the combinations.
-- `sh tester.sh remove` : removes all the generated files
-
-3/ Check **results.txt** and/or **moves.txt** and refer to the line to see where your algorithm failed (or succeeded!)
+If the script detects errors (too much moves or KO), a **results.txt** file is created to help you understand your mistakes.
