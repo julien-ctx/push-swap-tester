@@ -1,18 +1,14 @@
-# Push_Swap Sorting Tester | For small stacks
+# Push_Swap Sorting Tester
 
 ## What is the purpose of this script?
 
-This little Python script allows you to check how your program sorts **all the combinations** of small stacks. It is very convenient to be sure you meet the moves requirements for **3 and 5 numbers** as they are tested during the correction.
+This little Python script allows you to know if **your program sorts correctly smalls and large stacks**.
 
-**Example:**
+**All features:**
 
-You want to know if your algorithm sorts correctly ***5 different numbers***.
-There are 5! = 120 different combinations between five numbers, and checking it by yourself would be a waste of time!
-
-That's why this script checks:
-
-- for all the combinations of 3, 4 and 5 numbers, if the checker provided by 42 school returns OK or KO.
-- for all the combinations of 3, 4 and 5 numbers, if the number of moves used to sort the combination is greater than the subject requirements.
+- for all the small stacks (3, 4 and 5 numbers), it checks if your program sorts correctly **all possible combinations of numbers**.
+- for big stacks (100 and 500 numbers), it generates **10 random stacks** and checks if your program sorts them correctly.
+- it displays how many moves your program used to sort the stack, as well as the average, max and min moves.
 
 ## How to install the script?
 - ***For Mac***:
@@ -26,4 +22,5 @@ That's why this script checks:
 ## How to use the script?
 
 Atfer installation, all you have to do is execute the Python script at the root of your repository using: `python3 tester.py`
+
 If the script detects errors (too much moves or KO), a **results.txt** file is created to help you understand your mistakes.
