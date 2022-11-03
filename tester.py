@@ -153,7 +153,7 @@ if __name__ == "__main__":
 	print(color.BLUE + f"\n>> Testing 10 times for 500 numbers <<" + color.END)
 	calculate(500)
 	if os.path.exists("results.txt"):
-		print(color.RED + "\n-> You can find details of failed tests in results.txt file -<" + color.END)
+		print(color.RED + "\n-> You can find details of failed tests in results.txt file <-" + color.END)
 	else:
 		print(color.GREEN + "\n-> Congratulations! all the tests are OK! <-" + color.END)
 	print()
