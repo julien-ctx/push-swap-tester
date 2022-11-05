@@ -61,19 +61,19 @@ def calculate_combination(nb):
 		all_res.append((str(res_output), str(cmd)))
 
 	# Printing max moves and results
-	print(color.BOLD + "👉 MAX = " + str(max_moves), end = '')
+	print(color.BOLD + "👉 MAX = " + str(max_moves) + color.END, end = '')
 	if (max_moves > limit):
-		print(color.BOLD + "\t❌ Too Much Moves")
+		print(color.RED + "\t❌ Too Much Moves" + color.END)
 	else:
-		print(color.BOLD + "\t✅ OK")
+		print(color.GREEN + "\t✅ OK" + color.END)
 	state = True
 	for x in all_res:
 		if x[0] == "KO\n":
-			print(color.BOLD + "👉 RESULTS\t" + "❌ KO")
+			print(color.BOLD + "👉 RESULTS\t" + "❌ " + color.RED + "KO" + color.END)
 			state = False
 			break
 	if state:
-		print(color.BOLD + "👉 RESULTS\t" + "✅ OK" + color.END)
+		print(color.BOLD + "👉 RESULTS\t" + "✅ " + color.GREEN + "OK" + color.END)
 
 	# Printing trace
 	if limit == 3:
@@ -112,10 +112,10 @@ def calculate(nb):
 		res_cmd = "./push_swap " + nbs + " | ./checker_Mac " + nbs	
 		res_output = os.popen(res_cmd).read()
 		if res_output == "KO\n":
-			print(color.BOLD + f"TEST {x + 1} 👉 \t❌ KO")
+			print(color.BOLD + f"TEST {x + 1} 👉 \t❌ " + color.RED + "KO" + color.END)
 			wrong_values.append(("./push_swap " + nbs + " | ./checker_Mac " + nbs))
 		else:
-			print(color.BOLD + f"TEST {x + 1} 👉 \t✅ OK")
+			print(color.BOLD + f"TEST {x + 1} 👉 \t✅ " + color.GREEN + "OK" + color.END)
 		
 		moves_cmd = "./push_swap " + nbs + " | wc -l"
 		moves_output = os.popen(moves_cmd).read()	
@@ -128,9 +128,9 @@ def calculate(nb):
 			f.write(item + "\n\n")
 		f.close()
 	else:
-		print(color.BOLD + "\nMEAN 👉\t" + str(round(mean(moves))) + " moves", end = '')
-		print(color.RED + "\nMAX 👉\t" + str(max(moves)) + " moves", end = '')
-		print(color.GREEN + "\nMIN 👉\t" + str(min(moves)) + " moves")
+		print(color.BOLD + "\nMEAN 👉\t" + str(round(mean(moves))) + " moves" + color.END, end = '')
+		print(color.RED + "\nMAX 👉\t" + str(max(moves)) + " moves" + color.END, end = '')
+		print(color.GREEN + "\nMIN 👉\t" + str(min(moves)) + " moves" + color.END)
 
 def parsing_error():
 	print(color.RED + "❌ KO" + color.END)
@@ -141,19 +141,19 @@ def parsing_check():
 	res = os.popen("./push_swap").read()
 	ret_code = subprocess.run(["./push_swap"]).returncode
 	print(color.BOLD + "./push_swap\t\t\t\t" + color.END, end = '')
-	if res or ret_code < 0:
+	if res or ret_code == -11:
 		parsing_error()
 	else:
 		print(color.GREEN + "✅ OK" + color.END)
 
 	print(color.BOLD + './push_swap ""\t\t\t\t' + color.END, end = '')
-	res = os.popen('./push_swap ""').read()
-	ret_code = subprocess.run(["./push_swap", ""]).returncode
-	if res or ret_code < 0:
-		parsing_error()
-	else:
+	res = subprocess.run(["./push_swap", ""], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+	ret_code = res.returncode
+	if ret_code != -11 and ("Error" in str(res.stderr) or str(res.stdout) == "b''"):
 		print(color.GREEN + "✅ OK" + color.END)
-	
+	else:
+		parsing_error()
+
 	res = subprocess.run(['./push_swap', '3 2 -'], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 	print(color.BOLD + './push_swap "3 2 -"\t\t\t' + color.END, end = '')
 	if "Error" in str(res.stdout):
@@ -233,4 +233,5 @@ if __name__ == "__main__":
 	else:
 		print(color.GREEN + "\n-> Congratulations! all the tests are OK! <-" + color.END)
 	print()
+
 
