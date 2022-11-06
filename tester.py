@@ -151,6 +151,8 @@ def parsing_check():
 	ret_code = res.returncode
 	if ret_code != -11 and ("Error" in str(res.stderr) or str(res.stdout) == "b''"):
 		print(color.GREEN + "✅ OK" + color.END)
+	elif "Error" in str(res.stdout) and ret_code != -11:
+		print(color.YELLOW + "❗️ Errors must be displayed on stderr" + color.END)
 	else:
 		parsing_error()
 
@@ -233,5 +235,3 @@ if __name__ == "__main__":
 	else:
 		print(color.GREEN + "\n-> Congratulations! all the tests are OK! <-" + color.END)
 	print()
-
-
