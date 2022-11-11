@@ -201,7 +201,7 @@ def parsing_check():
 	
 	res = os.popen('./push_swap "2147483647 -2147483648"').read()
 	print(color.BOLD + './push_swap "2147483647 -2147483648"\t' + color.END, end = '')
-	if res != "sa\n":
+	if res != "sa\n" and res != "ra\n" and res != "rra\n":
 		parsing_error()
 	else:
 		print(color.GREEN + "✅ OK" + color.END)	
