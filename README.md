@@ -14,11 +14,15 @@ This little Python script allows you to know if **your program sorts correctly s
 ## How to install the script?
 - ***For Mac***:
 
-`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_Mac . && rm -rf push_swap_tester && chmod 777 checker_Mac && make && python3 tester.py`
+```
+git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_Mac . && rm -rf push_swap_tester && chmod 777 checker_Mac && make && python3 tester.py
+```
 
 - ***For Linux***:
 
-`git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_linux . && rm -rf push_swap_tester && chmod 777 checker_linux && sed -i -- 's/checker_Mac/checker_linux/g' tester.py && make && python3 tester.py`
+```
+git clone https://github.com/julien-ctx/push_swap_tester.git && mv push_swap_tester/tester.py . && mv push_swap_tester/checker_linux . && rm -rf push_swap_tester && chmod 777 checker_linux && sed -i -- 's/checker_Mac/checker_linux/g' tester.py && make && python3 tester.py
+```
 
 ## How to use the script?
 
