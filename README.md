@@ -1,4 +1,4 @@
-# Push_Swap Sorting Tester
+# Push_Swap Sorting Tester | 42
 
 ## What is the purpose of this script?
 
